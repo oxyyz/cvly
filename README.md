@@ -1,113 +1,65 @@
-# ✨ Nuxt 4 starter ✨
+# CVLY
 
-This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint, Tailwind CSS, Pinia and Docker.
+A modern Nuxt 4 application built with Vite, TypeScript, ESLint, Tailwind CSS, Pinia, and Docker.
 
-## Features
+## Tech Stack
 
-- **Vite ⚡**: Utilize the fast build tool for web development.
-- **TypeScript 🛡️**: Write safer and more maintainable code with TypeScript.
-- **ESLint & Stylistic 🧹**: Maintain code quality and consistency with ESLint (Flat config) and Stylistic.
-- **Tailwind CSS 🌬️**: Rapidly build custom user interfaces with Tailwind CSS.
-- **Pinia 🍍**: Best store for Vue & Nuxt.
-- **Docker 🐳**: Containerize your application for easy deployment and scalability.
-- **Custom Composables 🛠️**: Simplify API handling and metadata management with custom composable utilities like `useApi`.
+- **Vite ⚡**: Fast build tool for web development
+- **TypeScript 🛡️**: Type-safe code with TypeScript
+- **ESLint & Stylistic 🧹**: Code quality and consistency with ESLint (Flat config) and Stylistic
+- **Tailwind CSS 🌬️**: Utility-first CSS framework
+- **Pinia 🍍**: State management for Vue & Nuxt
+- **Docker 🐳**: Containerization for easy deployment and scalability
+- **Custom Composables 🛠️**: API handling utilities like `useApi`
 
-## Prerequisites
+## Development Setup
 
-Before getting started, ensure you have the following installed:
+### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v20 or higher but LTS `v22.14` recommended)
-- [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/) or [Yarn](https://yarnpkg.com/) package manager (pnpm recommended)
-- [Docker](https://www.docker.com/) (if you plan to use Docker for containerization)
+- [Node.js](https://nodejs.org/) (v20 or higher, LTS `v22.21` recommended)
+- [pnpm](https://pnpm.io/) (recommended) or [npm](https://www.npmjs.com/) / [Yarn](https://yarnpkg.com/)
+- [Docker](https://www.docker.com/) (optional, for containerized development)
 
-## Installation
+### Getting Started
 
-1. Clone the repo:
-
-```bash
-git clone https://github.com/mdotme/nuxt-starter my-awesome-project
-```
-
-2. Navigate to the cloned directory:
+1. Clone the repository:
 
 ```bash
-cd my-awesome-project
+git clone <repository-url>
+cd cvly
 ```
 
-3. Install deps:
+2. Install dependencies:
 
 ```bash
-pnpm i
+pnpm install
 ```
 
-## Configuration
-
-1. In the root directory, there is example env file: `.env.example`.
-2. Copy to `.env`:
+3. Set up environment variables:
 
 ```bash
 cp .env.example .env
+# Edit .env with your configuration
 ```
 
-3. Modify `.env`.
+4. Start the development server:
 
-- **ESLint & Prettier**: Configuration files for ESLint in `eslint.config.mts` file.
-- **Tailwind CSS**: Customize Tailwind CSS settings in the `./assets/css/tailwind.css` file.
-
-## Project structure
-
-Sample flat project structure for Nuxt4. If your project is more complex and bigger than simple landing page consider using [Nuxt layers](https://nuxt.com/docs/getting-started/layers).
-
-Sample vue file:
-
-```vue
-<script setup lang="ts">
-interface Props {
-  loading?: boolean; // Boolean props should be optional
-}
-const props = defineProps<Props>();
-
-const emit = defineEmits<{
-  submit: [data: Record<string, any>];
-}>();
-
-// Project provided first
-const { $api } = useNuxtApp();
-const route = useRoute();
-const { t } = useI18n();
-const localePath = useLocalePath()
-// Custom composables
-const api = useApi()
-// Stores
-const authStore = useAuthStore() // Name just store if it's related to store like Login.vue
-
-// Other stuff
-const data = ref()
-
-function sayHi() {
-  console.log("HII")
-}
-
-const getData = computed(() => data.value)
-
-watch(data, () => {
-  console.log("Do something")
-})
-const
-</script>
-
-<template>...</template>
-
-<style scoped>
-...
-</style>
+```bash
+pnpm dev
 ```
 
-Directories & Files:
+5. Build for production:
 
+```bash
+pnpm build
 ```
 
-/my-awesome-project
+## Project Structure
+
+This project follows a flat structure suitable for Nuxt 4 applications. For larger projects, consider using [Nuxt layers](https://nuxt.com/docs/getting-started/layers).
+
+```
+cvly/
   ├── app/
   │    ├── assets/
   │    │    ├── css/
@@ -123,7 +75,7 @@ Directories & Files:
   │    │
   │    ├── composables/
   │    │    ├── useApi.ts
-  │    │    ├── useApiFetch.ts
+  │    │    └── useApiFetch.ts
   │    │
   │    ├── constants/
   │    │    ├── maska.const.ts
@@ -171,18 +123,112 @@ Directories & Files:
   │
   ├── nuxt.config.ts
   └── package.json
-  ...
 ```
 
-- Composable files must be same as composable function names (`useCamelCase.ts`)
-- Middlewares must be `kebab-case.ts`
-- Stores must be `kebab-case.store.ts` with store suffix
-- Types must be `kebab-case.types.ts` with types suffix
-- Enums must be inside types directory and `kebab-case.enum.ts` with enum suffix
-- Directories and component names inside `components/` directory all must be `Pascal/Case.vue`
-- Utilities must be `kebab-case.util.ts` with util prefix
-- Constants must be `kebab-case.const.ts` with const prefix & must use uppercase variable naming: `const RGX_PHONE = /^\d{10,15}$/`
+## Coding Conventions
+
+### File Naming
+
+- **Composables**: Must match composable function names (`useCamelCase.ts`)
+- **Middlewares**: `kebab-case.ts`
+- **Stores**: `kebab-case.store.ts` with store suffix
+- **Types**: `kebab-case.types.ts` with types suffix
+- **Enums**: Inside types directory, `kebab-case.enum.ts` with enum suffix
+- **Components**: Directories and component names inside `components/` must be `Pascal/Case.vue`
+- **Utilities**: `kebab-case.util.ts` with util suffix
+- **Constants**: `kebab-case.const.ts` with const suffix & uppercase variable naming: `const RGX_PHONE = /^\d{10,15}$/`
+
+### Vue Component Structure
+
+Follow this structure for Vue components:
+
+```vue
+<script setup lang="ts">
+interface Props {
+  loading?: boolean; // Boolean props should be optional
+}
+const props = defineProps<Props>();
+
+const emit = defineEmits<{
+  submit: [data: Record<string, any>];
+}>();
+
+// Project provided first
+const { $api } = useNuxtApp();
+const route = useRoute();
+const { t } = useI18n();
+const localePath = useLocalePath();
+
+// Custom composables
+const api = useApi();
+
+// Stores
+const authStore = useAuthStore(); // Name just store if it's related to store like Login.vue
+
+// Other stuff
+const data = ref();
+
+function sayHi() {
+  console.log("HII");
+}
+
+const getData = computed(() => data.value);
+
+watch(data, () => {
+  console.log("Do something");
+});
+</script>
+
+<template>...</template>
+
+<style scoped>
+...
+</style>
+```
+
+## Code Quality
+
+- Run ESLint before committing:
+
+```bash
+pnpm lint
+```
+
+- Fix ESLint issues automatically:
+
+```bash
+pnpm lint:fix
+```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+We welcome contributions! Please follow these guidelines:
+
+### Getting Started
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes following our coding conventions
+4. Ensure your code passes linting (`pnpm lint`)
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Pull Request Guidelines
+
+- Provide a clear description of what your PR does
+- Reference any related issues
+- Ensure all tests pass (if applicable)
+- Ensure code passes linting
+- Follow the project's coding conventions
+- Keep PRs focused and reasonably sized
+
+### Reporting Issues
+
+- Use the issue tracker to report bugs or suggest features
+- Provide clear steps to reproduce issues
+- Include relevant environment information (Node.js version, OS, etc.)
+
+## License
+
+See [LICENSE](LICENSE) file for details.

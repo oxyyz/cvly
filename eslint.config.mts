@@ -36,6 +36,6 @@ export default withNuxt({
     },
   })
   .overrideRules({
-    "prettier/prettier": "warn",
+    "prettier/prettier": ["warn", { endOfLine: "auto" }],
     "simple-import-sort": "error",
   });
