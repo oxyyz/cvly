@@ -19,7 +19,7 @@ const socials = [
 </script>
 <template>
   <div
-    class="relative w-full h-screen p-10 bg-[url('../../assets/images/bg-pattern.jpg')] bg-contain bg-center"
+    class="relative w-full h-dvh p-10 bg-[url('../../assets/images/bg-pattern.jpg')] bg-contain bg-center"
   >
     <div class="container mx-auto h-full flex items-center justify-center">
       <div class="flex flex-col items-center">
@@ -58,7 +58,7 @@ const socials = [
       </div>
     </div>
     <div
-      class="absolute bottom-10 translate-x-1/2 right-1/2 flex items-center gap-x-3"
+      class="absolute bottom-10 translate-x-1/2 right-1/2 flex items-center gap-x-2"
     >
       <UTooltip
         v-for="value in socials"
@@ -71,7 +71,8 @@ const socials = [
         }"
       >
         <UButton
-          size="sm"
+          size="lg"
+          variant="ghost"
           :leading-icon="value.icon"
           :to="value.url"
           target="_blank"
