@@ -12,6 +12,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/ui": "^4.1.0",
     "@pinia/nuxt": "^0.11.2",
     "@tailwindcss/vite": "^4.1.11",
     "nuxt": "^4.0.2",

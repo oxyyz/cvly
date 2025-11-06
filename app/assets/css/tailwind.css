@@ -1,2 +1,9 @@
 @import "tailwindcss";
-/* @import "tailwindcss" prefix(tw); For prefixing */
+@import "@nuxt/ui";
+@import "../fonts/_font";
+
+@theme {
+  --font-sans: "Public Sans", system-ui, sans-serif;
+  --font-publico: "Publico Text", system-ui, serif;
+  --font-mono: "JetBrains Mono", monospace;
+}

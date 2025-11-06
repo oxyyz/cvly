@@ -4,7 +4,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   css: ["assets/css/tailwind.css"],
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxt/eslint"],
+  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/ui"],
+  ui: {
+    colorMode: false,
+  },
   runtimeConfig: {
     public: {
       apiBase: process.env.API_BASE,
