@@ -38,7 +38,7 @@ const socials = [
         </div>
         <div class="text-center space-y-1 sm:space-y-5 mb-4 sm:mb-6">
           <p
-            class="font-publico font-bold text-2xl/[130%] sm:text-5xl/[54px] text-neutral-800"
+            class="font-source-serif-pro font-bold text-2xl/[130%] sm:text-5xl/[54px] text-neutral-800"
           >
             Design your story, <br />
             <span class="text-blue-500">not just a document</span>
@@ -73,6 +73,7 @@ const socials = [
         <UButton
           size="lg"
           variant="ghost"
+          square
           :leading-icon="value.icon"
           :to="value.url"
           target="_blank"
